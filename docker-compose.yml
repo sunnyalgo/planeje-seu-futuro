@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  frontend-build:
+    container_name: frontend-build
+    image: frontend-build
+    build:
+      context: frontend/
+    volumes:
+      - ./frontend:/frontend
+    networks:
+      - planeje-seu-futuro
+
+networks:
+  planeje-seu-futuro:
+    name: planeje-seu-futuro
+    ipam:
+      config:
+      - subnet: 172.99.0.0/16
